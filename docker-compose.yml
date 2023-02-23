@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  ebx-playwright:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ebx-playwright
+    environment:
+      - owner=jbogard
+      - repo=MediatR
+      - branch=
+      - apiKey=
+      - authorName=Jimmy Bogard
+      - commitDate=2023-02-15
