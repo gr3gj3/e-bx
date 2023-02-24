@@ -23,13 +23,13 @@ npx playwright test
 ```
 (Note: Specify any desired Environment Variables appropriately as a precursor of the 'npx playwright test' command.)
 
-2 (b) Run tests (Docker):
+2. (b) Run tests (Docker):
 ```bash
 docker build . -t <name>:<tag>
 docker run --env MY_VAR1=value1 --env MY_VAR2=value2 <name>:<tag> npx playwright test
 ```
 
-2. (b) Run tests (Docker-Compose):
+2. (c) Run tests (Docker-Compose):
 ```bash
 docker-compose up -d
 ```
