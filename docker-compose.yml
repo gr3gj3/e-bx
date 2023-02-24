@@ -12,3 +12,4 @@ services:
       - apiKey=
       - authorName=Jimmy Bogard
       - commitDate=2023-02-15
+    command: npx playwright test
