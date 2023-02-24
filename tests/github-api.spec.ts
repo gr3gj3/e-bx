@@ -38,7 +38,7 @@ test.beforeAll(async () => {
 
     // Determine the GitHub API URL based on the provided variables
     // If a branch is specified then the URL will point at that branch.
-    githubUrl = `https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`;
+    githubUrl = `https://api.github.com/repos/${owner}/${repo}/commits`;
     if (branch) {
         githubUrl += `?sha=${branch}`
         console.log(`Owner: <${owner}> | Repo: <${repo}> | Branch: <${branch}>`);
@@ -54,7 +54,7 @@ test('Verify appropriate rejection to non-present apiKey', async () => {
 
     // Assert that the StatusCode matches that expected. (Fail).
     assert.strictEqual(response.status, noApiKeyExpStatusCode, 
-        `Response for API GET request to: ${githubUrl} returned StatusCode: ${response.status} - ${noApiKeyExpStatusCode} was expected`);
+        `Response for API GET request to: ${githubUrl} (without headers) returned StatusCode: ${response.status} - ${noApiKeyExpStatusCode} was expected`);
 
 });
 
@@ -63,12 +63,12 @@ test('Verify most recent commit with valid apiKey', async () => {
     const response = await fetch(githubUrl, {
         headers: {
             Authorization: `Bearer ${apiKey}`
-        }
+        },
     });
 
     // Assert that the Status Code is OK (2**)
     assert.ok(response.ok, 
-        `Response for API GET request to ${githubUrl} returned a NOK StatusCode: ${response.status}.`);
+        `Response for API GET request to <${githubUrl}> with apiKey: <${apiKey}> returned a NOK StatusCode: <${response.status}>`);
 
     // Convert the Response to JSON
     const commits = await response.json();
