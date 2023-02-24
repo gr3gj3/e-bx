@@ -37,6 +37,6 @@ docker-compose up -d
 
 ## Configuration
 
-* tests/env.js sets default values used for the tests - which will be used for variables where no environment variable is specified at runtime.
-* Environment Variables where desired should otherwise be set at runtime - through the usual methods. (and outlined above)wa
-* I have included the specified owner/repo etc information in this as well as the docker-compose for convenience - in a production scenario this information would inevitably be omitted.
+* tests/env.js includes the specification of default variables used for the tests.
+* Environment Variables can be/should otherwise however be set at runtime - through the usual methods. (and outlined above) (tests/env.js caters for such)
+* I have included the specified owner/repo etc information in this tests/env.js file as well as the docker-compose for convenience - in a production scenario this information would inevitably be omitted and need to be injected dynamically.
